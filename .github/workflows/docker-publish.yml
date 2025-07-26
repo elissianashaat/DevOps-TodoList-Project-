@@ -22,9 +22,10 @@ jobs:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASS }}
 
-    - name: Build and push image
+    - name: Build and Push Multi-Arch Docker Image
       uses: docker/build-push-action@v5
       with:
         context: .
         push: true
+        platforms: linux/amd64,linux/arm64
         tags: elissian/todo-list:latest
